@@ -8,13 +8,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qflix/ProductDetailsWidget.dart';
 import 'package:qflix/cubit/movies_cubit.dart';
 //import 'esewa_flutter_sdk.dart';
-
 import 'package:esewa_flutter_sdk/esewa_config.dart';
 import 'package:esewa_flutter_sdk/esewa_flutter_sdk.dart';
 import 'package:esewa_flutter_sdk/esewa_payment.dart';
 import 'package:qflix/models/seats_model.dart';
-
-
 
 
 Future<void> savePaymentData(
@@ -92,7 +89,7 @@ class _BookingScreenState extends State<BookingScreen> {
                 ),)
                 ),
                 /*ProductDetailsWidget(
-                  productId:1,
+                  productId:2,
                   productName:'movie',
                   totalPrice:300),*/
                   ),
