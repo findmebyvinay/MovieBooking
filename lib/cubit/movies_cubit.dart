@@ -82,8 +82,7 @@ class MoviesCubit extends Cubit<MoviesState> {
     availableSeats: availableSeats,
   ));
   }
-  /*     
-  This is comment
+  /*
   if (state.selected.contains(seatIndex)) {
     // If the seat is already selected, deselect it
     selectedSeats = List.from(state.selected)..remove(seatIndex);
