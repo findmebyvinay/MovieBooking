@@ -144,8 +144,9 @@ class _BookingScreenState extends State<BookingScreen> {
 
   void validatePayment(BuildContext context) {
 //Yeha raheko ni Esewa le testing ko lagi provide gareko wala ho clientId rw secretId.
- //context.read<MoviesCubit>().selectSeat(13);
+// context.read<MoviesCubit>().selectSeat(seatIndex);
 
+//
     final esewaConfig = EsewaConfig(
       environment: Environment.test,
       clientId: 'JB0BBQ4aD0UqIThFJwAKBgAXEUkEGQUBBAwdOgABHD4DChwUAB0R',
@@ -170,7 +171,7 @@ class _BookingScreenState extends State<BookingScreen> {
           print(result.productName);
           print(result.message);
              List<int> selectedSeats = context.read<MoviesCubit>().state.selected;
-
+        print(selectedSeats);
               List<int>? seatLabel;
   if (result.totalAmount != null && result.totalAmount is List<int>) {
     seatLabel = result.totalAmount as List<int>;

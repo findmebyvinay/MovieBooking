@@ -64,8 +64,10 @@ class MoviesCubit extends Cubit<MoviesState> {
     }
     //  List<int> selectedSeats;
       //List<int> availableSeats;
-      List<int> selectedSeats = List.from(state.selected);
+      List<int> selectedSeats = List.from([1,2,3]);
+      // List<int> selectedSeats = List.from(state.selected);
   List<int> availableSeats = List.from(state.availableSeats);
+
   if (selectedSeats.contains(seatIndex)) {
     // If the seat is already selected, deselect it
     selectedSeats.remove(seatIndex);
@@ -94,8 +96,13 @@ class MoviesCubit extends Cubit<MoviesState> {
     selected: selectedSeats,
     availableSeats: availableSeats,
   ));}*/
-   Future<void> book(String productId, String productName, String message,List<int> seatLabel) async {
+   Future<void> book(
+   String productId, 
+   String productName, 
+   String message,
+   List<int> seatLabel) async {
     print("book called");
+     print("selected seats are:${state.selected}");
   await savePaymentData(productId, productName, message);
 
    List<int> prevBookedSeats = await getBookedSeatsFromFirestore();
@@ -123,7 +130,7 @@ class MoviesCubit extends Cubit<MoviesState> {
       status: MoviesStatus.loaded,
       booked: newBookedSeats,
       allBookedSeats: newBookedSeats,
-      selected: selectedSeats,
+      selected: [],
       availableSeats: availableSeats,
     ));
    // ProductDetailsWidget(productId:int.parse(productId) , 
@@ -145,7 +152,7 @@ class MoviesCubit extends Cubit<MoviesState> {
     ));*/
   }
   Future<void> updateBookedSeatsInFirestore(List<int> newBookedSeats) async {
-    print(state.selected);
+   // print(state.selected);
     
   try {
     // Get a reference to the Firestore collection or document where you want to store the booked seats
