@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1024200502471",
+    "firebase_url": "https://qflix-booking-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "qflix-booking",
+    "storage_bucket": "qflix-booking.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1024200502471:android:0d91dab674e9290601a2e2",
+        "android_client_info": {
+          "package_name": "com.example.qflix"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxFJmRyEOorjjxMZONZnefgIMMa1ZvFgE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
