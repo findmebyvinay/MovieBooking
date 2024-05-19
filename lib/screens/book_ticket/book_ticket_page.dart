@@ -3,9 +3,12 @@ import 'dart:math';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mailer/mailer.dart';
+import 'package:mailer/smtp_server.dart';
 import 'package:qflix/auth/auth_page.dart';
 import 'package:qflix/cubit/movies_cubit.dart';
 import 'package:qflix/models/movie_model.dart';
+import 'package:qflix/models/seats_model.dart';
 import 'package:qflix/screens/book_ticket/widgets/day_selector.dart';
 import 'package:qflix/screens/book_ticket/widgets/screen.dart';
 import 'package:qflix/screens/book_ticket/widgets/seat_selector.dart';
@@ -48,9 +51,9 @@ class BookTicketView extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar
-        (backgroundColor: Color.fromARGB(255, 16, 15, 15),
+        (backgroundColor: const Color.fromARGB(255, 16, 15, 15),
         elevation: 0,
-        leading: Icon(Icons.star),
+        leading: const Icon(Icons.star),
           actions: [
           // ignore: prefer_const_constructors
           IconButton(onPressed: signUserOut, icon:Icon(Icons.logout)),
@@ -70,7 +73,9 @@ class BookTicketView extends StatelessWidget {
             ],
           ),
         ),
-        bottomNavigationBar: const BuyButton(),
+        bottomNavigationBar: BuyButton(
+         //sendMail()
+        ),
       ),
     );
   }
@@ -80,7 +85,7 @@ class BookTicketView extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       child: Row(
         children: [
-          Expanded(
+         Expanded(
             child: RichText(
               textAlign: TextAlign.end,
               text: TextSpan(
@@ -90,31 +95,66 @@ class BookTicketView extends StatelessWidget {
                     style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 24),
                   ),
                   const TextSpan(
-                    text: '\n9:00',
+                    text: '\n',
                     style: TextStyle(
                       fontSize: 18,
                       color: Colors.white60,
                     ),
                   ),
+                  WidgetSpan(child: ClickableTimeWidget(time: '9:00')),
+                  const TextSpan(text: '                 '), // Add a space separator
+                  WidgetSpan(child: ClickableTimeWidget(time: '12:00')),
+                  const TextSpan(text: '                 '), // Add a space separator
+                  WidgetSpan(child: ClickableTimeWidget(time: '3:00')),
                 ],
               ),
             ),
-          )
+          ),
+
+      
+
+    
         ],
+      
+        
       ),
+    
     );
   }
-
   void signUserOut() {
      FirebaseAuth.instance.signOut();
+  }
+  
+}
+class ClickableTimeWidget extends StatelessWidget {
+  final String time;
+
+  const ClickableTimeWidget({super.key, required this.time});
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        // Handle time selection
+        print('Time selected: $time');
+      },
+      child: Text(
+        time,
+        style: const TextStyle(
+          fontSize: 18,
+          color: Colors.yellow,
+        ),
+      ),
+    );
   }
 }
 
 class BuyButton extends StatelessWidget {
-  const BuyButton({
+  const BuyButton(
+     {
     super.key,
   });
-
+  
   @override
   Widget build(BuildContext context) {
     return ScaleUpAnimation(
@@ -123,10 +163,12 @@ class BuyButton extends StatelessWidget {
           padding: const EdgeInsets.all(20),
           child: ElevatedButton(
             onPressed: () {
+              
               // Calculate total price and number of selected seats
               final state = context.read<MoviesCubit>().state;
               final totalPrice = state.totalPrice;
               final totalSelected = state.totalSelected;
+              final selectedSeats= state.selected;
 
               // Generate unique productId and productName
               final productId = generateProductId();
@@ -141,7 +183,7 @@ class BuyButton extends StatelessWidget {
                     productId: productId,
                     productName: productName,
                     productPrice: totalPrice,
-		               selectedSeat: totalSelected, 
+		               selectedSeats:selectedSeats, 
                    totalPrice:totalPrice,
                   ),
                 ),

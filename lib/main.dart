@@ -2,7 +2,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:qflix/ProductDetailsWidget.dart';
+//import 'package:qflix/ProductDetailsWidget.dart';
 //import 'package:qflix/auth/auth_page.dart';
 import 'package:qflix/cubit/movies_cubit.dart';
 import 'package:qflix/firebase_options.dart';

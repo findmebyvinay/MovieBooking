@@ -17,7 +17,14 @@ class __LoginOrRegisterState extends State<LoginOrRegister> {
       showLoginPage=!showLoginPage;
     });
   }
-  @override
+    @override
+  Widget build(BuildContext context) {
+    return showLoginPage
+        ? Login(onTap: togglePages)
+        : RegisterNow(onTap: togglePages);
+  }
+
+  /*@override
   Widget build(BuildContext context) {
     if(showLoginPage){
     return Login(onTap: togglePages);
@@ -27,5 +34,5 @@ class __LoginOrRegisterState extends State<LoginOrRegister> {
      RegisterNow(
     onTap:togglePages
     );}
-  }
+  }*/
 }

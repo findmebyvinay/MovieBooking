@@ -22,11 +22,13 @@ class LoginController extends GetxController{
   }
 
   String? validateUserName(String value){
+    // ignore: unnecessary_null_comparison
     if (value == null ||value.isEmpty) return 'username Required';
       return null;
     
   }
    String? validatePassword(String value){
+    // ignore: unnecessary_null_comparison
     if (value == null ||value.isEmpty) return 'Required password';
       return null;
     

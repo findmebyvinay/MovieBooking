@@ -3,15 +3,15 @@
 import 'package:flutter/material.dart';
 import 'package:qflix/models/movie_model.dart';
 //import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:qflix/screens/book_ticket/book_ticket_page.dart';
+//import 'package:qflix/screens/book_ticket/book_ticket_page.dart';
 import 'package:qflix/movie/movie_page.dart';
 //import 'booking_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   List movies=[
+    'Boksi Ko Ghar',
+    'Mansara',
     'kabbadi',
-    'Jujutsu Kaisen',
-    'onepunch',
     'Solo Leveling'
 
   ];
@@ -49,15 +49,15 @@ class HomeScreen extends StatelessWidget {
             horizontal:10),
             child: Row(
               children: [
-                Icon(Icons.search,
-                size: 28,),
+               /* Icon(Icons.search,
+                size: 28,),*/
                  SizedBox(
                   width: 5,
                 ),
-                Icon(
+                /*Icon(
                   Icons.filter_alt_outlined,
                   size: 28,
-                )
+                )*/
               ],
             ),)
         ],

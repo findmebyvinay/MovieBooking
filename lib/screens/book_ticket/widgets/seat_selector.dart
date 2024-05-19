@@ -44,7 +44,7 @@ class _SeatSelectorState extends State<SeatSelector> {
   }
     String getSeatLabel(int index) {
       // return index.toString();
-      int seatNum= index++;
+      int seatNum= index +1;
       return seatNum.toString();
    // int row = (index / columns).floor() + 1;
     //int col = index % columns + 1;
@@ -137,7 +137,30 @@ class Seat extends StatelessWidget {
         seatColor = Colors.transparent;
         break;
     }
-     return Container(
+
+  return InkWell(
+    onTap: status == SeatStatus.booked ? null : onTap,
+    borderRadius: BorderRadius.circular(10),
+    child: Container(
+      margin: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: seatColor,
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: Colors.white24, width: 1),
+      ),
+      child: Center(
+        child: Text(
+          seatLabel ,
+          style: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 12,
+          ),
+        ),
+      ),
+    ),
+  );
+     /*return Container(
       margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         color:seatColor,
@@ -181,7 +204,7 @@ class Seat extends StatelessWidget {
             : onTap,
         borderRadius: BorderRadius.circular(10),
       ),*/
-    );
+    );*/
     /*return Container(
       margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(

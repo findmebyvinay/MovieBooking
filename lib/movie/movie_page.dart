@@ -3,17 +3,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qflix/auth/auth_page.dart';
 import 'package:qflix/cubit/movies_cubit.dart';
 import 'package:qflix/models/movie_model.dart';
-import 'package:qflix/screens/book_ticket/book_ticket_page.dart';
-import 'package:qflix/screens/booking_screen.dart';
-import 'package:qflix/screens/loginpage/login.dart';
-import 'package:qflix/screens/ticket/ticket_page.dart';
-import 'package:qflix/widgets/app_chip.dart';
+//import 'package:qflix/screens/book_ticket/book_ticket_page.dart';
+//import 'package:qflix/screens/booking_screen.dart';
+//import 'package:qflix/screens/loginpage/login.dart';
+//import 'package:qflix/screens/ticket/ticket_page.dart';
+//import 'package:qflix/widgets/app_chip.dart';
 import 'package:qflix/widgets/glass_icon_button.dart';
 import 'package:qflix/widgets/scaleup_animation.dart';
 import 'package:qflix/widgets/translateup_animation.dart';
-import 'package:qflix/screens/home_screen.dart';
+//import 'package:qflix/screens/home_screen.dart';
   
 
+// ignore: must_be_immutable
 class MoviePage extends StatelessWidget {
   
    // MoviePage({super.key, required this.movie});
@@ -22,9 +23,9 @@ class MoviePage extends StatelessWidget {
   final Movie movie;
   final int index;
   List movies=[
+    'Boksi Ko Ghar',
+    'Mansara',
     'kabbadi',
-    'Jujutsu Kaisen',
-    'onepunch',
     'Solo Leveling'
 
   ];
@@ -147,6 +148,7 @@ class MoviePage extends StatelessWidget {
   }
 
   void _bookTicket(BuildContext context) {
+    final moviesCubit = MoviesCubit()..loadSeats();
     Navigator.of(context)
         .push(
       PageRouteBuilder(

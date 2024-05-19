@@ -1,21 +1,21 @@
-import 'dart:math';
+//import 'dart:math';
 
 import 'package:flutter/material.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import'package:flutter/material.dart';
+//import'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:qflix/models/movie_model.dart';
-import 'package:qflix/screens/book_ticket/book_ticket_page.dart';
+//import 'package:qflix/models/movie_model.dart';
+//import 'package:qflix/screens/book_ticket/book_ticket_page.dart';
 import 'package:qflix/screens/components/my_button.dart';
-import 'package:qflix/screens/components/my_textfield.dart';
-import 'package:qflix/screens/components/reg_button.dart';
-import 'package:qflix/screens/components/square_tile.dart';
+//import 'package:qflix/screens/components/my_textfield.dart';
+//import 'package:qflix/screens/components/reg_button.dart';
+//import 'package:qflix/screens/components/square_tile.dart';
 import 'package:qflix/screens/loginpage/controller/login_controller.dart';
-import 'package:qflix/screens/loginpage/register_now.dart';
-import 'package:qflix/screens/ticket/ticket_page.dart';
+//import 'package:qflix/screens/loginpage/register_now.dart';
+//import 'package:qflix/screens/ticket/ticket_page.dart';
 
-import '../../auth/auth_page.dart';
+//import '../../auth/auth_page.dart';
 class RegisterNow extends StatefulWidget {
   final Function()? onTap;
    RegisterNow({super.key,required this.onTap});
@@ -25,9 +25,9 @@ class RegisterNow extends StatefulWidget {
 }
 
 class _RegisterNowState extends State<RegisterNow> {
-    final  logincontroller=Get.put(LoginController());
+    final  loginController=Get.put(LoginController());
     final confrimPasswordController=TextEditingController();
-    final passwordController=TextEditingController();
+   // final passwordController=TextEditingController();
 
  // final logincontroller= LoginController();
    
@@ -36,15 +36,15 @@ class _RegisterNowState extends State<RegisterNow> {
        builder:(context)=>Center(
         child: CircularProgressIndicator(),
        ) );try{
-       if(passwordController.text !=confrimPasswordController.text){
+       if(loginController.passwordController.text !=confrimPasswordController.text){
           Navigator.pop(context);
        displayMessage("password must be same !",context);
        
        }
         else{
            await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email:logincontroller.usernameController.text ,
-           password:logincontroller.passwordController.text);
+          email:loginController.usernameController.text ,
+           password:loginController.passwordController.text);
           
         }
       
@@ -68,7 +68,7 @@ class _RegisterNowState extends State<RegisterNow> {
       body:SingleChildScrollView(
         child: SafeArea(
           child: GetBuilder<LoginController>(
-            init: logincontroller,
+            init: loginController,
             builder: (controller) {
               return Form(
                 autovalidateMode:AutovalidateMode.onUserInteraction,
@@ -120,7 +120,7 @@ class _RegisterNowState extends State<RegisterNow> {
                 
                 
                       TextFormField(
-                        controller:passwordController,
+                        controller:controller.passwordController,
                          obscuringCharacter:'*',
                          
                       //  hintText: 'password',

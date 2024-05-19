@@ -11,7 +11,7 @@ import 'package:qflix/screens/loginpage/controller/login_controller.dart';
 //import 'package:qflix/screens/loginpage/register.dart';
 //import 'package:qflix/screens/ticket/ticket_page.dart';
 
-import '../../auth/auth_page.dart';
+//import '../../auth/auth_page.dart';
 class Login extends StatefulWidget {
   final Function()? onTap;
 
@@ -38,7 +38,7 @@ class _LoginState extends State<Login> {
            //Navigator.pop(context);
        }on FirebaseAuthException catch(e){
         Navigator.pop(context);
-        showError(e.code);
+        showError(e.message??e.code);
        }
            
    }

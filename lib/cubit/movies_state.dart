@@ -22,6 +22,7 @@ class MoviesState {
     this.booked= const[],
     this.allBookedSeats = const [],
     required this.availableSeats,
+   // required this.bookedSeatsByDate,
   });
   // busy = [];
     final List<int> availableSeats;
@@ -30,8 +31,9 @@ class MoviesState {
   final int seats;
   final List<int> empty;
   //final List<int> busy;
-  final List<int> selected;
+  final List<int> selected ;
   final List<int>booked;
+ //  final Map<DateTime, List<int>> bookedSeatsByDate; // New field
   
 
   int get totalSelected => selected.length;
@@ -49,6 +51,7 @@ class MoviesState {
     List<int>? allBookedSeats,
     List<int>? seatLabel,
     List<int>? availableSeats,
+     //Map<DateTime, List<int>>? bookedSeatsByDate,
   }) {
     return MoviesState(
       status: status ?? this.status,
@@ -59,6 +62,7 @@ class MoviesState {
       booked:booked?? this.booked,
       allBookedSeats: allBookedSeats ?? this.allBookedSeats,
       availableSeats: availableSeats ?? this.availableSeats,
+      // bookedSeatsByDate: bookedSeatsByDate ?? this.bookedSeatsByDate,
     );
   }
 }
