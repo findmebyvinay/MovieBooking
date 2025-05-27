@@ -20,6 +20,6 @@ This is a movie ticket booking app using Flutter.
 After this I have Integrated Esewa page.
 
 
-Here is video of the app.
+
 
 
