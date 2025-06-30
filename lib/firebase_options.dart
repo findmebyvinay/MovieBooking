@@ -44,7 +44,7 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyA4VXuUt58YTAoBCQLQwCZjEURWQczreP8',
+    apiKey: 'APIKEY',
     appId: '1:1024200502471:web:4fba6bb6ed3838fc01a2e2',
     messagingSenderId: '1024200502471',
     projectId: 'qflix-booking',
@@ -54,7 +54,7 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDxFJmRyEOorjjxMZONZnefgIMMa1ZvFgE',
+    apiKey: 'APIKEY',
     appId: '1:1024200502471:android:0d91dab674e9290601a2e2',
     messagingSenderId: '1024200502471',
     projectId: 'qflix-booking',
@@ -73,7 +73,7 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDIliwxxQ8Qqh87gldssBZjx-lfVtFbqqI',
+    apiKey: 'APIKEY',
     appId: '1:1024200502471:ios:274623ff4f66c4a001a2e2',
     messagingSenderId: '1024200502471',
     projectId: 'qflix-booking',
